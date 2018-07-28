@@ -1,6 +1,9 @@
 #python3
 '''
 date: July 2018
+
+Class Checker is better to be used for getting historical data
+and class Newsroomscraper for getting in realtime data
 '''
 from bs4 import BeautifulSoup
 from pymongo import MongoClient
@@ -19,9 +22,11 @@ FDA_NEWSROOM = 'https://www.fda.gov/NewsEvents/Newsroom/PressAnnouncements/defau
 
 HEADER ={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.75 Safari/537.36'}
 
+#authentification for twilio api
 account_sid = "BLABLALBA"
 auth_token = "BALABALBA"
 
+#mongo staff
 CONNECTION = MongoClient('mongodb://localhost:27017/my_database')
 
 db = CONNECTION.my_database
@@ -40,7 +45,7 @@ HISTORICAL_URLS  = ['https://www.fda.gov/Drugs/DevelopmentApprovalProcess/DrugIn
 
 class Checker():
     '''
-    Class for checking storing and retrieving data from FDA
+    Class for checking storing and retrieving data from FDA susing URL_APPROVED
     but for that url data are updated in few days
     but this data can be used for analysis because it is much easier to extract name of Company and drug name from URL_APPROVED
     '''
